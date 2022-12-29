@@ -1,0 +1,6 @@
+ktor:
+  application:
+    modules:
+      - com.dangelo.KyberApplicationKt.module
+  deployment:
+    port: 8080
