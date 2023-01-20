@@ -5,6 +5,7 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "1.7.22"
     id("io.ktor.plugin") version "2.2.1"
+    id("org.sonarqube") version "3.5.0.2730"
 }
 
 group = "com.dangelo"
@@ -14,6 +15,14 @@ application {
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
+}
+
+sonarqube {
+    properties {
+        property("sonar.projectKey", "d-angelo-2049_kyber")
+        property("sonar.organization", "chandai-hardcoregeek")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 repositories {
